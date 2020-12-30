@@ -8,7 +8,7 @@ const router = require("express").Router();
 // Get "/api/note" responds with all notes from the database - db.json
 router.get("/notes", function (req, res) {
 
-    fs.readfile ("/db/db.json", "utf8", (err, response) => {
+    fs.readFile ("./db/db.json", "utf8", (err, response) => {
 
         if (err) throw err;
 
