@@ -47,7 +47,7 @@ router.post("/notes", function (req, res) {
             notepad = [];
         }
 
-        console.log("Reading notes", notepad);
+        console.log("HAL has read your notes...", notepad);
 
         if (notepad.length > 0) {
 
@@ -69,16 +69,35 @@ router.post("/notes", function (req, res) {
         // combine the notes
         notepad = [...notepad, newNote];
 
-        console.log ("Combined notes are", notepad);
+        console.log("HAL has combined notes", notepad);
 
         // file path, json.stringify, call back function from the read file
         // check hw10
-        fs.writeFile (notepad);
+        fs.writeFile("./db/db.json", notepad, function (error) {
+
+            if (error) throw error;
+
+            console.log("HAL has stored your notes...");
+        });
     });
 });
 
 
 // delete
+router.post("/notes", function (req, res) {
+
+    // read the file look for the specific item to be deleted
+    fs.readFile("./db/db.json", "utf8", (err, response) => {
+
+        //delete identified object
+
+        //rewrite what's left
+
+    });
+
+});
+
+// need id for item to delete
 
 // delete existing 
 
