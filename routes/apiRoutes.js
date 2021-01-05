@@ -84,15 +84,31 @@ router.post("/notes", function (req, res) {
 
 
 // delete
-router.post("/notes", function (req, res) {
+router.post("/notes/:id", function (req, res) {
+
+    let deleteNote = req.params.id
 
     // read the file look for the specific item to be deleted
     fs.readFile("./db/db.json", "utf8", (err, response) => {
 
-        //delete identified object
+        if (err) throw err;
+
+        let thisNotepad = JSON.parse(response);
+
+        console.log("HAL is tracking these notes", thisNotepad);
+
+        // filter the notes/delete identified object
+        let filteredNotes = thisNotepad.filter((note) => note.id != deleteNote);
+
+        console.log("HAL has these filtered notes", filteredNotes)
 
         //rewrite what's left
+        fs.writeFile("./db/db.json", JSON.stringify(filteredNotes, null, 2), function (error) {
 
+            if (error) throw error;
+
+            console.log("HAL has deleted the identified notes", deleteNote);
+        });
     });
 
 });
