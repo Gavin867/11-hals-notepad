@@ -49,15 +49,17 @@ router.post("/notes", function (req, res) {
 
         console.log("HAL has read your notes...", notepad);
 
+        let latestNoteID;
+
         if (notepad.length > 0) {
 
-            let latestNoteID = notepad[notepad.length - 1].id;
+            latestNoteID = notepad[notepad.length - 1].id;
 
             latestNoteID = latestNoteID + 1;
 
         } else {
 
-            let latestNoteID = 1;
+            latestNoteID = 1;
         }
 
         const newNote = { ...req.body, id: latestNoteID };
@@ -73,18 +75,20 @@ router.post("/notes", function (req, res) {
 
         // file path, json.stringify, call back function from the read file
         // check hw10
-        fs.writeFile("./db/db.json", notepad, function (error) {
+        fs.writeFile("./db/db.json", JSON.stringify(notepad, null, 2), function (error) {
 
             if (error) throw error;
 
             console.log("HAL has stored your notes...");
+        
+            res.json({ success: true, msg: 'Created new note' });
         });
     });
 });
 
 
 // delete
-router.post("/notes/:id", function (req, res) {
+router.delete("/notes/:id", function (req, res) {
 
     let deleteNote = req.params.id
 
@@ -100,12 +104,14 @@ router.post("/notes/:id", function (req, res) {
         // filter the notes/delete identified object
         let filteredNotes = thisNotepad.filter((note) => note.id != deleteNote);
 
-        console.log("HAL has these filtered notes", filteredNotes)
+        console.log("HAL has these filtered notes", filteredNotes);
 
         //rewrite what's left
         fs.writeFile("./db/db.json", JSON.stringify(filteredNotes, null, 2), function (error) {
 
             if (error) throw error;
+
+            res.json(filteredNotes);
 
             console.log("HAL has deleted the identified notes", deleteNote);
         });
