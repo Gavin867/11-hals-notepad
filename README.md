@@ -18,6 +18,8 @@ An application that uses express.js and JSON to store your notes.
 
 ## Location
 
+Deployed Application Link: https://hals-notepad.herokuapp.com/
+
 GitHub Repository Link: https://github.com/Gavin867/11-hals-notepad
 
 ## Demo
