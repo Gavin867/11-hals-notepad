@@ -24,6 +24,7 @@ GitHub Repository Link: https://github.com/Gavin867/11-hals-notepad
 
 ## Demo
 
+![Demo](https://github.com/Gavin867/11-hals-notepad/blob/main/public/assets/img/Hal's%20Notepad%20Gif%20(1200px).gif)
 
 ## Installation
 
