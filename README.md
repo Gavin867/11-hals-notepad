@@ -18,7 +18,7 @@ An application that uses express.js and JSON to store your notes.
 
 ## Location
 
-GitHub Repository Link: https://github.com/Gavin867/10-meet-your-team
+GitHub Repository Link: https://github.com/Gavin867/11-hals-notepad
 
 ## Demo
 
