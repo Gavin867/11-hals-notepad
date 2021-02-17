@@ -1,4 +1,4 @@
-# 11-hals-notepad
+# HAL's Notepad
 
 ![License Icon](https://img.shields.io/badge/license-GPL3.0-informational.svg)
 
@@ -20,7 +20,7 @@ An application that uses express.js and JSON to store your notes.
 
 Deployed Application Link: https://hals-notepad.herokuapp.com/
 
-GitHub Repository Link: https://github.com/Gavin867/11-hals-notepad
+GitHub Repository Link: https://github.com/Gavin867/HALs_Notepad
 
 ## Demo
 
